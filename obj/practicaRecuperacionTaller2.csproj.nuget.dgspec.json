@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTaller2.csproj": {}
+    "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTll2\\practicaRecuperacionTaller2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTaller2.csproj": {
+    "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTll2\\practicaRecuperacionTaller2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTaller2.csproj",
+        "projectUniqueName": "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTll2\\practicaRecuperacionTaller2.csproj",
         "projectName": "practicaRecuperacionTaller2",
-        "projectPath": "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTaller2.csproj",
+        "projectPath": "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTll2\\practicaRecuperacionTaller2.csproj",
         "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\obj\\",
+        "outputPath": "C:\\Users\\Diego\\OneDrive\\Desktop\\taller\\practicaRecuperacionTaller2\\practicaRecuperacionTll2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Data.SQLite": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
