@@ -1,7 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var CadenaConexion= builder.Configuration.GetConnectionString("SqliteConexion")!.ToString();
+builder.Services.AddSingleton<String>(CadenaConexion);
+builder.Services.AddScoped<ITareaRepository, TareaRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

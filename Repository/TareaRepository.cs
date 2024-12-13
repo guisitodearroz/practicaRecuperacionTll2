@@ -1,6 +1,6 @@
 using Microsoft.Data.Sqlite;
 
-public class TareaRepository
+public class TareaRepository : ITareaRepository
 {
     //crea un campo para tener la direccion de la conexion a la Bd
     private string _cadenaConexion;
@@ -57,6 +57,20 @@ public class TareaRepository
             cantfilas= comando.ExecuteNonQuery();
             conexion.Close();
         }
+        return cantfilas > 0;
+    }
+    public bool Update(int id, Tarea tarea){
+        string query="UPDATE tareas SET titulo= @titulo ,descripcion= @descripcion,estado=@estado WHERE id= @id";
+        int cantfilas=0;
+        using(SqliteConnection conexion= new SqliteConnection(_cadenaConexion)){
+            conexion.Open();
+            SqliteCommand comando= new SqliteCommand(query, conexion);
+            comando.Parameters.Add(new SqliteParameter("@titulo",tarea.Titulo));
+            comando.Parameters.Add(new SqliteParameter("@descricion",tarea.Descripcion));
+            comando.Parameters.Add(new SqliteParameter("@estado",tarea.Estado));
+            cantfilas= comando.ExecuteNonQuery();
+            conexion.Close();
+        } 
         return cantfilas > 0;
     }
 }
