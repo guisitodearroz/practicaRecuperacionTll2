@@ -18,7 +18,18 @@ public class TareaController : ControllerBase
     public ActionResult<Tarea> Create([FromBody]Tarea tarea){
        bool tareaCreada= _tareaRepository.CrearTarea(tarea);
        if(!tareaCreada) return BadRequest("No se pudo crear la tarea");
-       return NoContent(); 
+       return Created(); 
     }
-    
+    [HttpGet("/api/tarea/{id}")]
+    public ActionResult<Tarea> GetTarea(int id){
+        Tarea tarea= _tareaRepository.BuscarTareaPorId(id);
+        if (tarea == null) return NotFound("No se encontro la tarea");
+        return Ok(tarea);
+    }
+    [HttpDelete("/api/tarea/{id}")]
+    public ActionResult<Tarea> DeleteTarea(int id){
+        bool tareaEliminar= _tareaRepository.Delete(id);
+        if (!tareaEliminar) return BadRequest("No se pudo eliminar la tarea");
+        return Ok("Tarea Borrada con exito");
+    }
 }

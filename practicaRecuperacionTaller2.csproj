@@ -10,5 +10,9 @@
     <PackageReference Include="Microsoft.Data.SQLite" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update= "Db\Tareas.db">
+      <CopyToOutpuDirectory>Always</CopyToOutpuDirectory>
+    </None>
+  </ItemGroup>
 </Project>

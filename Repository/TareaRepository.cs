@@ -18,8 +18,45 @@ public class TareaRepository
             comando.Parameters.Add(new SqliteParameter("@descripcion",tarea.Descripcion));
             comando.Parameters.Add(new SqliteParameter("@estado",tarea.Estado));
             cantFilasModif= comando.ExecuteNonQuery();
-            conexion.Close
+            conexion.Close();
         }
         return cantFilasModif > 0;
+    }
+
+    public Tarea BuscarTareaPorId(int id){
+        string query ="SELECT * FROM tareas WHERE id= @id";
+        Tarea tarea=null;
+        using (SqliteConnection conexion= new SqliteConnection(_cadenaConexion)){
+            conexion.Open();
+            SqliteCommand comando= new SqliteCommand(query, conexion);
+            comando.Parameters.Add(new SqliteParameter("@id", id));
+            using(SqliteDataReader reader= comando.ExecuteReader()){
+                if (reader.Read())
+                {
+                    tarea= new Tarea{
+                        Id=Convert.ToInt32(reader["id"]),
+                        Titulo= reader["titulo"].ToString(),
+                        Descripcion= reader["descripcion"].ToString(),
+                        Estado= (Estado)Convert.ToInt32(reader["estado"])
+                    };
+                }
+            }
+            conexion.Close();
+        }
+        return tarea;
+
+    }
+
+    public bool Delete(int id){
+        string query="DELETE FROM tareas WHERE = id= @id";
+        int cantfilas=0;
+        using(SqliteConnection conexion= new SqliteConnection(_cadenaConexion)){
+            conexion.Open();
+            SqliteCommand comando= new SqliteCommand(query, conexion);
+            comando.Parameters.Add(new SqliteParameter("@id", id));
+            cantfilas= comando.ExecuteNonQuery();
+            conexion.Close();
+        }
+        return cantfilas > 0;
     }
 }
